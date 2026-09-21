@@ -67,7 +67,7 @@
   }
 }
 
-html[data-theme="dark"]{
+:root[data-theme="dark"]{
   --ground:#17121A;
   --surface:#211A24;
   --surface-2:#2C232F;
@@ -85,7 +85,7 @@ html[data-theme="dark"]{
   --board-ink:#D3E0F5;
   --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
 }
-html.theme-blue[data-theme="dark"]{
+:root.theme-blue[data-theme="dark"]{
   --ground:#111620;
   --surface:#1A212D;
   --surface-2:#232B39;
@@ -141,7 +141,6 @@ img{max-width:100%}
   place-items:center;
   width:40px;
   height:40px;
-  margin-left:-8px;
   border-radius:9px;
   color:var(--accent);
   text-decoration:none;
@@ -458,6 +457,20 @@ footer a{color:var(--accent)}
 
 @media (prefers-reduced-motion: reduce){
   *{transition:none !important;animation:none !important;scroll-behavior:auto !important}
+}
+
+/* ---------- portrait phone ---------- */
+@media (max-width:599px){
+  .opt .mark{
+    font-size:0;
+    min-width:20px;
+    text-align:right;
+    margin-top:2px;
+  }
+  .opt .mark::after{font-size:17px;line-height:1.2}
+  .opt.right .mark::after{content:"\2713"}
+  .opt.wrong .mark::after{content:"\2715"}
+  footer .kbd{display:none}
 }
 
 /* ---------- wider screens ---------- */

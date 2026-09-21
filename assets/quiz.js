@@ -14,6 +14,18 @@
   var counter = document.getElementById("counter");
   var tally = document.getElementById("tally");
 
+  function scrollTop() {
+    try { window.scrollTo({ top: 0, behavior: "smooth" }); }
+    catch (e) { try { window.scrollTo(0, 0); } catch (e2) {} }
+  }
+
+  function reveal(el) {
+    if (el && typeof el.scrollIntoView === "function") {
+      try { el.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+      catch (e) { try { el.scrollIntoView(); } catch (e2) {} }
+    }
+  }
+
   function shuffle(arr) {
     var a = arr.slice();
     for (var i = a.length - 1; i > 0; i--) {
@@ -144,7 +156,7 @@
       card.appendChild(act);
 
       stage.replaceChildren(card);
-      why.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      reveal(why);
     } else {
       stage.replaceChildren(card);
     }
@@ -161,7 +173,7 @@
     if (idx < deck.length - 1) {
       idx++;
       drawQuestion();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      scrollTop();
     } else {
       idx = deck.length;
       drawResult();
@@ -242,7 +254,7 @@
     frag.appendChild(card);
     stage.replaceChildren(frag);
     drawRail();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    scrollTop();
   }
 
   document.addEventListener("keydown", function (e) {
@@ -268,7 +280,7 @@
   function start(source) {
     buildDeck(source);
     drawQuestion();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    scrollTop();
   }
 
   start(QUESTIONS);
