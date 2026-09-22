@@ -35,6 +35,30 @@
   --muted:#5C6878;
 }
 
+/* Kemi 1 wears organic green */
+:root.theme-green{
+  --accent:#2E6B4A;
+  --accent-soft:#E2EFE7;
+  --ground:#F2F6F3;
+  --surface-2:#E8F0EA;
+  --line:#D4E2D9;
+  --ink:#1B2620;
+  --muted:#586A5F;
+  --board:#1A3D2C;
+}
+
+/* Kemi 2 wears combustion ember */
+:root.theme-ember{
+  --accent:#A8471E;
+  --accent-soft:#F7E6DC;
+  --ground:#F9F4F1;
+  --surface-2:#F1E7E1;
+  --line:#E5D6CC;
+  --ink:#2A1D16;
+  --muted:#71594C;
+  --board:#40200F;
+}
+
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --ground:#17121A;
@@ -64,6 +88,30 @@
     --accent:#7FB2F0;
     --accent-ink:#0B1626;
     --accent-soft:#1E2A3C;
+  }
+  :root.theme-green:not([data-theme="light"]){
+    --ground:#121A15;
+    --surface:#1B241E;
+    --surface-2:#242F28;
+    --ink:#E8F1EB;
+    --muted:#96A99E;
+    --line:#2F3D35;
+    --accent:#7FD5A5;
+    --accent-ink:#0C1B13;
+    --accent-soft:#1E3126;
+    --board:#0F231A;
+  }
+  :root.theme-ember:not([data-theme="light"]){
+    --ground:#1A1310;
+    --surface:#241A15;
+    --surface-2:#30231C;
+    --ink:#F4E9E3;
+    --muted:#AE968A;
+    --line:#3D2C23;
+    --accent:#F0966B;
+    --accent-ink:#2A1509;
+    --accent-soft:#33211A;
+    --board:#2B1508;
   }
 }
 
@@ -95,6 +143,31 @@
   --accent:#7FB2F0;
   --accent-ink:#0B1626;
   --accent-soft:#1E2A3C;
+}
+
+:root.theme-green[data-theme="dark"]{
+  --ground:#121A15;
+  --surface:#1B241E;
+  --surface-2:#242F28;
+  --ink:#E8F1EB;
+  --muted:#96A99E;
+  --line:#2F3D35;
+  --accent:#7FD5A5;
+  --accent-ink:#0C1B13;
+  --accent-soft:#1E3126;
+  --board:#0F231A;
+}
+:root.theme-ember[data-theme="dark"]{
+  --ground:#1A1310;
+  --surface:#241A15;
+  --surface-2:#30231C;
+  --ink:#F4E9E3;
+  --muted:#AE968A;
+  --line:#3D2C23;
+  --accent:#F0966B;
+  --accent-ink:#2A1509;
+  --accent-soft:#33211A;
+  --board:#2B1508;
 }
 
 *{box-sizing:border-box}
@@ -397,7 +470,23 @@ main{padding-bottom:28px}
 .misslist .qq{display:block;font-weight:500;font-size:16px}
 .misslist .aa{display:block;color:var(--muted);font-size:15px;margin-top:2px}
 
-/* ---------- landing page ---------- */
+/* subject sections on the landing page */
+.subject{margin-top:34px}
+.subject-title{
+  font-family:"Fraunces",Georgia,serif;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--line);
+}
+.subject-note{margin:10px 0 0;color:var(--muted);font-size:15px}
+.subject .deck{margin-top:14px}
+
+/* landing page ---------- */
 .deck{display:flex;flex-direction:column;gap:14px;margin-top:26px}
 .tile{
   display:block;
@@ -419,7 +508,7 @@ main{padding-bottom:28px}
   color:var(--accent);
   font-weight:600;
 }
-.tile h2{
+.tile h3{
   font-family:"Fraunces",Georgia,serif;
   font-size:24px;
   font-weight:600;
